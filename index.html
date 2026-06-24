@@ -20,453 +20,81 @@
     --muted: #6B6860;
     --white: #FFFFFF;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; line-height: 1.75; font-size: 16px; }
 
-  body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
-    font-size: 16px;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(247, 245, 240, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    height: 56px;
-  }
-
-  .nav-logo {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--teal);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; }
+  .nav-logo { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 1rem; color: var(--teal); letter-spacing: 0.05em; text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--teal); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 88vh;
-    display: grid;
-    place-items: center;
-    padding: 6rem 2rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { min-height: 88vh; display: grid; place-items: center; padding: 6rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(61,125,117,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; color: var(--teal); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .hero-series { font-family: 'Noto Serif TC', serif; font-size: clamp(0.95rem, 1.8vw, 1.2rem); font-weight: 400; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 1rem; }
+  .hero-title { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(2rem,5vw,3.5rem); line-height: 1.25; letter-spacing: 0.04em; max-width: 800px; margin: 0 auto 0.75rem; }
+  .hero-subtitle { font-family: 'DM Serif Display', serif; font-size: clamp(1rem,2vw,1.35rem); font-weight: 400; font-style: italic; color: var(--muted); margin-bottom: 2.5rem; letter-spacing: 0.02em; }
+  .hero-meta { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .meta-item { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .meta-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .meta-value { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+  .hero-divider { width: 48px; height: 2px; background: var(--teal); margin: 0 auto 3rem; }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(61,125,117,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .btn-primary { display: inline-block; background: var(--teal); color: var(--white); padding: 0.85rem 2.5rem; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-secondary { display: inline-block; border: 1.5px solid var(--teal); color: var(--teal); padding: 0.85rem 2.5rem; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-decoration: none; border-radius: 2px; margin-left: 1rem; transition: all 0.2s; }
+  .btn-secondary:hover { background: var(--teal-pale); transform: translateY(-1px); }
 
-  .hero-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: var(--teal);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
+  section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+  section + section { border-top: 1px solid var(--sand); }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem,3vw,2rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.3; }
+  .section-body { color: #3A3935; line-height: 1.9; font-size: 0.95rem; }
 
-  .hero-title {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.25;
-    letter-spacing: 0.04em;
-    max-width: 800px;
-    margin: 0 auto 0.75rem;
-  }
-
-  .hero-subtitle {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1rem, 2vw, 1.35rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-meta {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
-  }
-
-  .meta-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 500;
-  }
-
-  .meta-value {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .hero-divider {
-    width: 48px;
-    height: 2px;
-    background: var(--teal);
-    margin: 0 auto 3rem;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 0.85rem 2.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .btn-primary:hover {
-    background: var(--teal-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-secondary {
-    display: inline-block;
-    border: 1.5px solid var(--teal);
-    color: var(--teal);
-    padding: 0.85rem 2.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    border-radius: 2px;
-    margin-left: 1rem;
-    transition: all 0.2s;
-  }
-
-  .btn-secondary:hover {
-    background: var(--teal-pale);
-    transform: translateY(-1px);
-  }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 5rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  section + section {
-    border-top: 1px solid var(--sand);
-  }
-
-  .section-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--teal);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title {
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
-  }
-
-  .section-body {
-    color: #3A3935;
-    line-height: 1.9;
-    font-size: 0.95rem;
-  }
-
-  /* ── AGENDA ── */
-  .agenda-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-  }
-
-  .agenda-table th {
-    background: var(--teal);
-    color: var(--white);
-    padding: 0.75rem 1rem;
-    text-align: left;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    font-size: 0.8rem;
-  }
-
-  .agenda-table td {
-    padding: 0.85rem 1rem;
-    border-bottom: 1px solid var(--sand);
-    vertical-align: top;
-  }
-
+  .agenda-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; }
+  .agenda-table th { background: var(--teal); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 500; letter-spacing: 0.05em; font-size: 0.8rem; }
+  .agenda-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
   .agenda-table tr:last-child td { border-bottom: none; }
-
   .agenda-table tr:nth-child(even) td { background: var(--teal-pale); }
-
-  .time-col {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 600;
-    color: var(--teal);
-    white-space: nowrap;
-    width: 120px;
-  }
-
-  .tag {
-    display: inline-block;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.15rem 0.5rem;
-    border-radius: 2px;
-    margin-right: 0.5rem;
-    font-weight: 500;
-  }
-
+  .time-col { font-family: 'Noto Serif TC', serif; font-weight: 600; color: var(--teal); white-space: nowrap; width: 120px; }
+  .tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; margin-right: 0.5rem; font-weight: 500; }
   .tag-keynote { background: rgba(61,125,117,0.12); color: var(--teal); }
-  .tag-break   { background: var(--sand); color: var(--muted); }
+  .tag-break { background: var(--sand); color: var(--muted); }
   .tag-present { background: rgba(61,125,117,0.06); color: #2D6059; border: 1px solid rgba(61,125,117,0.2); }
 
-  /* ── TOPICS GRID ── */
-  .topics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+  .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; margin-top: 2rem; }
+  .topic-card { background: var(--white); border: 1px solid var(--sand); border-left: 3px solid var(--teal); padding: 1rem 1.25rem; font-size: 0.88rem; line-height: 1.6; border-radius: 0 2px 2px 0; }
 
-  .topic-card {
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-left: 3px solid var(--teal);
-    padding: 1rem 1.25rem;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    border-radius: 0 2px 2px 0;
-  }
+  .dates-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0; }
+  .dates-list li { display: flex; align-items: baseline; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--sand); font-size: 0.9rem; }
+  .date-badge { font-family: 'Noto Serif TC', serif; font-size: 0.78rem; font-weight: 700; background: var(--teal); color: var(--white); padding: 0.2rem 0.6rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
 
-  /* ── DATES ── */
-  .dates-list {
-    list-style: none;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .notice-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .notice-list li { padding-left: 1.25rem; position: relative; font-size: 0.9rem; line-height: 1.8; color: #3A3935; }
+  .notice-list li::before { content: '—'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
-  .dates-list li {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid var(--sand);
-    font-size: 0.9rem;
-  }
-
-  .date-badge {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    background: var(--teal);
-    color: var(--white);
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* ── HISTORY ── */
-  .history-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-
-  .history-card {
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: 2px;
-    padding: 1.5rem;
-    position: relative;
-    transition: box-shadow 0.2s;
-  }
-
-  .history-card:hover {
-    box-shadow: 0 4px 16px rgba(61,125,117,0.1);
-  }
-
-  .history-year {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    color: var(--teal-pale);
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    line-height: 1;
-    user-select: none;
-  }
-
-  .history-name {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.4rem;
-    position: relative;
-  }
-
-  .history-date {
-    font-size: 0.8rem;
-    color: var(--teal);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-  }
-
-  .history-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  .history-link {
-    display: inline-block;
-    margin-top: 0.75rem;
-    font-size: 0.78rem;
-    color: var(--teal);
-    text-decoration: none;
-    border-bottom: 1px solid var(--teal-pale);
-    transition: border-color 0.2s;
-  }
-
-  .history-link:hover { border-color: var(--teal); }
-
-  /* ── NOTICE ── */
-  .notice-list {
-    list-style: none;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .notice-list li {
-    padding-left: 1.25rem;
-    position: relative;
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: #3A3935;
-  }
-
-  .notice-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-    font-weight: 700;
-  }
-
-  /* ── INFO CARDS ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-
-  .info-card {
-    background: var(--teal-pale);
-    border-radius: 2px;
-    padding: 1.5rem;
-  }
-
-  .info-card-title {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-    color: var(--teal);
-    letter-spacing: 0.04em;
-  }
-
-  .info-card p, .info-card a {
-    font-size: 0.85rem;
-    color: var(--muted);
-    text-decoration: none;
-    line-height: 1.8;
-  }
-
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  .info-card { background: var(--teal-pale); border-radius: 2px; padding: 1.5rem; }
+  .info-card-title { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--teal); letter-spacing: 0.04em; }
+  .info-card p, .info-card a { font-size: 0.85rem; color: var(--muted); text-decoration: none; line-height: 1.8; }
   .info-card a:hover { color: var(--teal); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 2.5rem 2rem;
-    font-size: 0.8rem;
-    line-height: 1.9;
-  }
+  .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .history-card { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; padding: 1.5rem; position: relative; transition: box-shadow 0.2s; }
+  .history-card:hover { box-shadow: 0 4px 16px rgba(61,125,117,0.1); }
+  .history-year { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--teal-pale); position: absolute; top: 0.75rem; right: 1rem; line-height: 1; user-select: none; }
+  .history-name { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; position: relative; }
+  .history-date { font-size: 0.8rem; color: var(--teal); margin-bottom: 0.75rem; font-weight: 500; }
+  .history-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+  .history-link { display: inline-block; margin-top: 0.75rem; font-size: 0.78rem; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-pale); transition: border-color 0.2s; }
+  .history-link:hover { border-color: var(--teal); }
 
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; line-height: 1.9; }
   footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   footer a:hover { color: var(--white); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
     nav { padding: 0 1rem; }
     .nav-links { gap: 1rem; }
@@ -475,19 +103,14 @@
     .hero { padding: 5rem 1.25rem 3rem; }
     .hero-meta { gap: 1.5rem; }
     .info-grid { grid-template-columns: 1fr; }
-    .btn-secondary { margin-left: 0; margin-top: 0.75rem; }
     .hero-btns { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
     .btn-secondary { margin-left: 0; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#top">HSCP 2026 · 醫療科技與大健康</a>
   <ul class="nav-links">
@@ -500,12 +123,12 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div id="top" class="hero">
   <div>
     <p class="hero-eyebrow">國立臺北護理健康大學 健康科技學院 · 語言治療語聽力學系</p>
+    <p class="hero-series">大健康科學與實務系列</p>
     <h1 class="hero-title">2026 醫療科技與大健康應用<br>暨語聽學術研討會</h1>
-    <p class="hero-subtitle">Medical Technology, Grand Health & Speech-Hearing Science</p>
+    <p class="hero-subtitle">Medical Technology, Grand Health &amp; Speech-Hearing Science</p>
     <div class="hero-divider"></div>
     <div class="hero-meta">
       <div class="meta-item">
@@ -522,33 +145,25 @@
       </div>
     </div>
     <div class="hero-btns">
-      <a href="#submit" class="btn-primary">摘要投稿</a>
+      <a href="https://script.google.com/macros/s/AKfycbyapoSpyANu9JIB3j5WElm93MLXXoVEMh6BnWDL2ZTTZsXzS_NQam4d8is5xYMIZdQo/exec" target="_blank" rel="noopener" class="btn-primary">摘要投稿</a>
       <a href="#agenda" class="btn-secondary">查看議程</a>
     </div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <p class="section-label">活動介紹</p>
   <h2 class="section-title">跨域對話，推動健康科學實踐</h2>
-  <p class="section-body">
-    本研討會旨在探討與分享健康科學及實務領域的最新研究成果與創新想法，並提供健康科學相關科系學生學術論文發表之平台，同時邀請各領域專家學者進行講評與討論。研討會透過產、官、學界之互動研討，促進研究成果與實務經驗的交流分享，確保參與者有充分的機會進行學術交流與網絡建立，以推進健康科學與實務領域的整體發展。
-  </p>
+  <p class="section-body">本研討會旨在探討與分享健康科學及實務領域的最新研究成果與創新想法，並提供健康科學相關科系學生學術論文發表之平台，同時邀請各領域專家學者進行講評與討論。研討會透過產、官、學界之互動研討，促進研究成果與實務經驗的交流分享，確保參與者有充分的機會進行學術交流與網絡建立，以推進健康科學與實務領域的整體發展。</p>
 </section>
 
-<!-- AGENDA -->
 <section id="agenda">
   <p class="section-label">活動議程</p>
   <h2 class="section-title">半日議程</h2>
   <p class="section-body">研討會於上午開幕，設一場專題演講、中場休息，以及口頭與海報論文同步發表，全程至 13:00 結束。</p>
   <table class="agenda-table">
     <thead>
-      <tr>
-        <th>時間</th>
-        <th>項目</th>
-        <th>說明</th>
-      </tr>
+      <tr><th>時間</th><th>項目</th><th>說明</th></tr>
     </thead>
     <tbody>
       <tr>
@@ -585,7 +200,6 @@
   </table>
 </section>
 
-<!-- TOPICS -->
 <section id="topics">
   <p class="section-label">徵稿主題</p>
   <h2 class="section-title">歡迎投稿領域</h2>
@@ -601,48 +215,31 @@
   </div>
 </section>
 
-<!-- IMPORTANT DATES -->
 <section id="dates">
   <p class="section-label">重要日期</p>
   <h2 class="section-title">時程一覽</h2>
   <ul class="dates-list">
-    <li>
-      <span class="date-badge">2026 / 07</span>
-      公告徵稿訊息（日期待定）
-    </li>
-    <li>
-      <span class="date-badge">2026 / 09</span>
-      摘要投稿截止（日期待定）
-    </li>
-    <li>
-      <span class="date-badge">2026 / 10 初</span>
-      公告形式審查結果（日期待定）
-    </li>
-    <li>
-      <span class="date-badge">2026 / 10 / 29</span>
-      研討會發表日（週四）
-    </li>
+    <li><span class="date-badge">2026 / 07</span>公告徵稿訊息（日期待定）</li>
+    <li><span class="date-badge">2026 / 09</span>摘要投稿截止（日期待定）</li>
+    <li><span class="date-badge">2026 / 10 初</span>公告形式審查結果（日期待定）</li>
+    <li><span class="date-badge">2026 / 10 / 29</span>研討會發表日（週四）</li>
   </ul>
 </section>
 
-<!-- SUBMISSION -->
 <section id="submit">
   <p class="section-label">摘要投稿</p>
   <h2 class="section-title">論文摘要投稿</h2>
-  <p class="section-body">
-    接受之論文將收錄於研討會論文集，並從中篩選適合大會主題之論文進行口頭報告，擇優推薦轉投「健康科技期刊」、「旅遊健康學刊」。
-  </p>
-  <ul class="notice-list" style="margin-top:1.25rem;">
+  <p class="section-body">接受之論文將收錄於研討會論文集，並從中篩選適合大會主題之論文進行口頭報告，擇優推薦轉投「健康科技期刊」、「旅遊健康學刊」。</p>
+  <ul class="notice-list">
     <li>本次研討會摘要投稿，接受之論文將收錄於研討會之論文集，並從中篩選適合大會主題之論文進行口頭報告，並擇優推薦轉投「健康科技期刊」、「旅遊健康學刊」。</li>
     <li>為響應環保及減少紙張印製，本研討會僅提供雲端下載研討會論文集（不提供紙本及論文集光碟）。</li>
     <li>全程參與研討會者，將發予數位研習證明；論文發表者，另給予數位論文發表證明。</li>
     <li>本活動將視政府發展與政策規劃，調整活動辦理方式，不便之處，敬請見諒。</li>
   </ul>
   <br>
-  <a href="https://script.google.com/macros/s/AKfycbyapoSpyANu9JIB3j5WElm93MLXXoVEMh6BnWDL2ZTTZsXzS_NQam4d8is5xYMIZdQo/exec" target="_blank" class="btn-primary" style="opacity:0.5; pointer-events:none>投稿連結</a>
+  <a href="https://script.google.com/macros/s/AKfycbyapoSpyANu9JIB3j5WElm93MLXXoVEMh6BnWDL2ZTTZsXzS_NQam4d8is5xYMIZdQo/exec" target="_blank" rel="noopener" class="btn-primary">前往投稿</a>
 </section>
 
-<!-- INFO -->
 <section id="info">
   <p class="section-label">參與資訊</p>
   <h2 class="section-title">交通 · 聯絡 · 證明</h2>
@@ -661,12 +258,11 @@
     </div>
     <div class="info-card">
       <p class="info-card-title">聯絡窗口</p>
-      <p>國立臺北護理健康大學 健康科技學院<br><a href="https://newcoht.ntunhs.edu.tw/" target="_blank">newcoht.ntunhs.edu.tw</a></p>
+      <p>國立臺北護理健康大學 健康科技學院<br><a href="https://newcoht.ntunhs.edu.tw/" target="_blank" rel="noopener">newcoht.ntunhs.edu.tw</a></p>
     </div>
   </div>
 </section>
 
-<!-- HISTORY -->
 <section id="history">
   <p class="section-label">歷年回顧</p>
   <h2 class="section-title">研討會沿革</h2>
@@ -677,14 +273,14 @@
       <p class="history-name">健康科學與實務研討會</p>
       <p class="history-date">2024 年 5 月 23 – 24 日</p>
       <p class="history-desc">兩日研討會，涵蓋健康產業、資訊應用、長照、語言病理、醫療救護等多元領域，設有口頭發表與海報展示。</p>
-      <a class="history-link" href="https://sites.google.com/gm.ntunhs.edu.tw/hscp2024/%E9%A6%96%E9%A0%81" target="_blank">查看 2024 活動網站 →</a>
+      <a class="history-link" href="https://sites.google.com/gm.ntunhs.edu.tw/hscp2024/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">查看 2024 活動網站 →</a>
     </div>
     <div class="history-card">
       <span class="history-year">2025</span>
       <p class="history-name">大健康科學暨休閒產業<br>與健康促進學術研討會</p>
       <p class="history-date">2025 年 6 月 13 日</p>
       <p class="history-desc">以半日形式舉辦，聚焦健康科技創新、旅遊休閒健康、長照科技與公共衛生實務應用，提供論文摘要集雲端下載。</p>
-      <a class="history-link" href="https://sites.google.com/view/cohthscp/%E9%A6%96%E9%A0%81" target="_blank">查看 2025 活動網站 →</a>
+      <a class="history-link" href="https://sites.google.com/view/cohthscp/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">查看 2025 活動網站 →</a>
     </div>
     <div class="history-card">
       <span class="history-year">2026</span>
@@ -695,15 +291,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>國立臺北護理健康大學 健康科技學院</p>
-  <p>112303 臺北市北投區明德路365號 ·
-    <a href="https://newcoht.ntunhs.edu.tw/" target="_blank">newcoht.ntunhs.edu.tw</a>
-  </p>
-  <p style="margin-top:0.75rem; font-size:0.72rem; opacity:0.6;">
-    HSCP 2026 · Medical Technology, Grand Health &amp; Speech-Hearing Science Symposium
-  </p>
+  <p>112303 臺北市北投區明德路365號 · <a href="https://newcoht.ntunhs.edu.tw/" target="_blank" rel="noopener">newcoht.ntunhs.edu.tw</a></p>
+  <p style="margin-top:0.75rem; font-size:0.72rem; opacity:0.6;">HSCP 2026 · Medical Technology, Grand Health &amp; Speech-Hearing Science Symposium</p>
 </footer>
 
 </body>
